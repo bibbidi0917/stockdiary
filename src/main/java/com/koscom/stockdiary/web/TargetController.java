@@ -11,4 +11,9 @@ public class TargetController {
     public String pageNowTarget(){
         return "nowTarget";
     }
+
+    @GetMapping("/target/finalTargetCreate")
+    public String pageFinalTargetCreate(){
+        return "finalTargetPopup";
+    }
 }
