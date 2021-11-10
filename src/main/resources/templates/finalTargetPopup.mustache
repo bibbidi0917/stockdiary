@@ -22,7 +22,42 @@
     <link rel="shortcut icon" href="/bootstrap/images/favicon.png" />
 </head>
 <body>
-최종목표 생성 팝업
+<div class="container-scroller">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title">최종 목표 설정하기</h3>
+                <p class="card-description">
+                    투자의 최종 목표가 무엇인가요?
+                </p>
+                <form class="forms-sample">
+                    <div class="form-group row">
+                        <label for="exampleInputUsername2" class="col-sm-3 col-form-label">최종 목표</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" name="finalTargetName" id="finalTargetName" placeholder="목표명을 입력해주세요">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="exampleInputUsername2" class="col-sm-3 col-form-label">시작 날짜</label>
+                        <div class="col-sm-5">
+                            <input type="date" class="form-control" name="finalTargetStartDate" value="2021-11-12" id="finalTargetStartDate"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="exampleInputUsername2" class="col-sm-3 col-form-label">종료 날짜</label>
+                        <div class="col-sm-5">
+                            <input type="date" class="form-control" name="finalTargetEndDate" value="2021-12-11" id="finalTargetStartDate"/>
+                        </div>
+                    </div>
+                    <button type="submit" id="btn-finalTarget-save" class="btn btn-primary mr-2">Save</button>
+                    <button class="btn btn-light">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
 
 
 
