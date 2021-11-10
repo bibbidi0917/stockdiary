@@ -5,13 +5,14 @@ spring:
       enabled: true
 
   jpa:
-    hibernate:
-      ddl-auto: update
     properties:
       hibernate:
         format_sql: true
     show-sql: true
 
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
 naver:
   openapi:
     newsUrl: https://openapi.naver.com/v1/search/news.json
