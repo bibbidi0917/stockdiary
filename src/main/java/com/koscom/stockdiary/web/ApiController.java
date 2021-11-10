@@ -1,9 +1,8 @@
 package com.koscom.stockdiary.web;
 
 import com.koscom.stockdiary.domain.News;
-import com.koscom.stockdiary.domain.Transaction;
-import com.koscom.stockdiary.service.TransService;
-import com.koscom.stockdiary.web.dto.ResponseTransList;
+import com.koscom.stockdiary.service.ApiService;
+import com.koscom.stockdiary.web.dto.ResponseStock;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,14 +12,15 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/search")
+@RequestMapping("/koscom")
 @RequiredArgsConstructor
-public class SearchController {
+public class ApiController {
 
-    private final TransService transService;
+    private final ApiService apiService;
 
-    @GetMapping("/s")
-    public List<Transaction> getTransList (@RequestParam(name = "q") String stockName) {
-        return transService.search(stockName);
+    @GetMapping("/price")
+    public String getPriceByQuery(@RequestParam(name = "mc") String marketcode, @RequestParam(name = "ic") String issuecode) {
+
+        return apiService.getPrice(marketcode, issuecode);
     }
 }

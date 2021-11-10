@@ -1,0 +1,15 @@
+package com.koscom.stockdiary.web.dto;
+
+import com.koscom.stockdiary.domain.Stock;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class ResponseStock {
+    private String result;
+}
