@@ -15,4 +15,9 @@ public class MainController {
     }
 
 
+    @GetMapping("/search/transaction")
+    public String pageSearchTransaction(){
+        return "searchTransaction";
+    }
+
 }

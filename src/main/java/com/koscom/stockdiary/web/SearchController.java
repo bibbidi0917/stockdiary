@@ -23,4 +23,6 @@ public class SearchController {
     public List<Transaction> getTransList (@RequestParam(name = "q") String stockName) {
         return transService.search(stockName);
     }
+
+
 }

@@ -16,4 +16,9 @@ public class TargetController {
     public String pageFinalTargetCreate(){
         return "finalTargetPopup";
     }
+
+    @GetMapping("/target/historyTarget")
+    public String pageHistoryTarget(){
+        return "historyTarget";
+    }
 }
