@@ -262,6 +262,94 @@
         <div class="main-panel">
             <div class="content-wrapper">
                 <div class="row">
+                    <div class="col-md-12 grid-margin stretch-card">
+                        <div class="card tale-bg">
+                            <div class="card-people mt-auto">
+                                <img src="/image/stockChart3.png" alt="people">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 grid-margin stretch-card">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="card-title" style="text-align: center">오늘의 목표</h3>
+                                <div class="list-wrapper pt-2">
+                                    <ul class="d-flex flex-column-reverse todo-list todo-list-custom">
+                                        <li>
+                                            <div class="form-check form-check-flat">
+                                                <label class="form-check-label">
+                                                    <input class="checkbox" type="checkbox">
+                                                    Meeting with Urban Team
+                                                </label>
+                                            </div>
+                                            <i class="remove ti-close"></i>
+                                        </li>
+                                        <li class="completed">
+                                            <div class="form-check form-check-flat">
+                                                <label class="form-check-label">
+                                                    <input class="checkbox" type="checkbox" checked>
+                                                    Duplicate a project for new customer
+                                                </label>
+                                            </div>
+                                            <i class="remove ti-close"></i>
+                                        </li>
+                                        <li>
+                                            <div class="form-check form-check-flat">
+                                                <label class="form-check-label">
+                                                    <input class="checkbox" type="checkbox">
+                                                    Project meeting with CEO
+                                                </label>
+                                            </div>
+                                            <i class="remove ti-close"></i>
+                                        </li>
+                                        <li class="completed">
+                                            <div class="form-check form-check-flat">
+                                                <label class="form-check-label">
+                                                    <input class="checkbox" type="checkbox" checked>
+                                                    Follow up of team zilla
+                                                </label>
+                                            </div>
+                                            <i class="remove ti-close"></i>
+                                        </li>
+                                        <li>
+                                            <div class="form-check form-check-flat">
+                                                <label class="form-check-label">
+                                                    <input class="checkbox" type="checkbox">
+                                                    Level up for Antony
+                                                </label>
+                                            </div>
+                                            <i class="remove ti-close"></i>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 grid-margin">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="text" id="searchWord" class="form-control" placeholder="뉴스검색어를 입력하세요" aria-label="Recipient's username">
+                                <div class="input-group-append">
+                                    <button class="btn btn-sm btn-primary" id="btn-search-news" type="button">Search</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 col-xl-8 mb-4 mb-xl-0">
+                                <h3 class="font-weight-bold" style="text-align: right">오늘의 뉴스</h3>
+                                <!--<h6 class="font-weight-normal mb-0">All systems are running smoothly! You have <span class="text-primary">3 unread alerts!</span></h6>-->
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <div id="display">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+<!--                <div class="row">
                     <div class="col-md-12 grid-margin">
                         <div class="row">
                             <div class="col-12 col-xl-8 mb-4 mb-xl-0">
@@ -389,8 +477,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
+                </div>-->
+               <!-- <div class="row">
                     <div class="col-md-12 grid-margin stretch-card">
                         <div class="card position-relative">
                             <div class="card-body">
@@ -569,9 +657,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-7 grid-margin stretch-card">
+                </div>-->
+<!--                <div class="row">
+                    &lt;!&ndash;<div class="col-md-7 grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
                                 <p class="card-title mb-0">Top Products</p>
@@ -633,7 +721,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>&ndash;&gt;
                     <div class="col-md-5 grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body">
@@ -874,38 +962,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 grid-margin stretch-card">
-                        <div class="card">
-                            <div class="card-body">
-                                <p class="card-title">Advanced Table</p>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="table-responsive">
-                                            <table id="example" class="display expandable-table" style="width:100%">
-                                                <thead>
-                                                <tr>
-                                                    <th>Quote#</th>
-                                                    <th>Product</th>
-                                                    <th>Business type</th>
-                                                    <th>Policy holder</th>
-                                                    <th>Premium</th>
-                                                    <th>Status</th>
-                                                    <th>Updated at</th>
-                                                    <th></th>
-                                                </tr>
-                                                </thead>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
+                </div>-->
             </div>
             <!-- content-wrapper ends -->
             <!-- partial:partials/_footer.html -->
@@ -947,6 +1004,9 @@
 <script src="/bootstrap/js/dashboard.js"></script>
 <script src="/bootstrap/js/Chart.roundedBarCharts.js"></script>
 <!-- End custom js for this page-->
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="/js/app/index.js"></script>
 </body>
 
 </html>
