@@ -18,3 +18,9 @@ naver:
     newsUrl: https://openapi.naver.com/v1/search/news.json
     clientId : ENC(hKgIgviTznFXy0nh75mJ/jAyVu6NEmRM7LDOIPg26ZM=)
     clientSecret : ENC(6S0Zw8qzGus4Ffaj2UJJXRKxyb6KYPw/)
+
+
+koscom:
+  stock:
+    url : https://sandbox-apigw.koscom.co.kr/v2/market/stocks
+    apikey : ENC(am6v4kqS6NCJJpJM30lnn4mRKyu/kmxtm6xvFmJHuj8P8BNM/DZZnfkZw62msZU2)

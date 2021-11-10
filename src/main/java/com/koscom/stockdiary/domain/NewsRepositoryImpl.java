@@ -32,6 +32,7 @@ public class NewsRepositoryImpl implements NewsRepository {
                 .stream()
                 .map(m -> News.builder()
                         .title(m.getTitle())
+                        .link(m.getLink())
                         .build())
                 .collect(Collectors.toList());
     }
