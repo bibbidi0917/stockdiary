@@ -15,7 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/search")
 @RequiredArgsConstructor
-public class SearchController {
+public class SearchRestController {
 
     private final TransService transService;
 
