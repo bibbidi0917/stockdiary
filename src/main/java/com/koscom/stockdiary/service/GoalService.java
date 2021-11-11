@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.PostConstruct;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 @RequiredArgsConstructor
 @Service
@@ -53,7 +54,6 @@ public class GoalService {
 
     }
 
-
     @Transactional
     public void createFinalGoal(FinalGoal finalGoal) {
         if(finalGoal.getStartDate() == null) finalGoal.setStartDate(LocalDate.now());
@@ -84,7 +84,16 @@ public class GoalService {
     @Transactional(readOnly = true)
     public List<FinalGoal> findGoalList() {
         List<FinalGoal> goalList = finalGoalRepository.findAll();
-
+        for(FinalGoal goal : goalList) {
+            int done = (int) goal.getPerformances().stream()
+                    .filter(perfGoal -> perfGoal.getIsDone() == Boolean.TRUE)
+                    .count();
+            System.out.println(goal.getPerformances().size());
+            int progress = (int) ((double) done / (double) goal.getPerformances().size() * 100);
+            if(progress==100) {
+                goalList.remove(goal);
+            }
+        }
         return goalList;
     }
 
