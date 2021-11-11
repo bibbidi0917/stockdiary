@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.PostConstruct;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -18,6 +19,40 @@ public class GoalService {
 
     private final FinalGoalRepository finalGoalRepository;
     private final PerformanceGoalRepository performanceGoalRepository;
+
+    @PostConstruct
+    @Transactional
+    public void init() {
+        FinalGoal finalGoal1 = FinalGoal.builder().title("최종목표1").build();
+        finalGoalRepository.save(finalGoal1);
+
+        PerformanceGoal goal1 = PerformanceGoal.builder().title("수행목표1").startDate(LocalDate.now()).endDate(LocalDate.now().plusMonths(1)).build();
+        performanceGoalRepository.save(goal1);
+        finalGoal1.add(goal1);
+        finalGoalRepository.save(finalGoal1);
+
+        FinalGoal finalGoal2 = FinalGoal.builder().title("최종목표2").build();
+        finalGoalRepository.save(finalGoal2);
+
+        PerformanceGoal goal2 = PerformanceGoal.builder().title("수행목표2").startDate(LocalDate.now().minusDays(3)).endDate(LocalDate.now().plusMonths(1)).build();
+        performanceGoalRepository.save(goal2);
+        goal2.setIsDone(true);
+        finalGoal2.add(goal2);
+        finalGoalRepository.save(finalGoal2);
+
+        PerformanceGoal goal3 = PerformanceGoal.builder().title("수행목표3").startDate(LocalDate.now().minusDays(3)).endDate(LocalDate.now().minusDays(1)).build();
+        performanceGoalRepository.save(goal3);
+        finalGoal2.add(goal3);
+        finalGoalRepository.save(finalGoal2);
+
+        PerformanceGoal goal4 = PerformanceGoal.builder().title("수행목표4").startDate(LocalDate.now()).endDate(LocalDate.now().minusDays(1)).build();
+        goal4.setIsDone(true);
+        performanceGoalRepository.save(goal4);
+        finalGoal2.add(goal4);
+        finalGoalRepository.save(finalGoal2);
+
+    }
+
 
     @Transactional
     public void createFinalGoal(FinalGoal finalGoal) {

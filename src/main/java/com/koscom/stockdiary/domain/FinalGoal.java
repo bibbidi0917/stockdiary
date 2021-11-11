@@ -1,9 +1,6 @@
 package com.koscom.stockdiary.domain;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -32,6 +29,7 @@ public class FinalGoal {
     @JoinColumn(name="FINALGOAL_SEQ")
     private List<PerformanceGoal> performances = new ArrayList<>();
 
+    @Builder
      public FinalGoal(String title, LocalDate startDate, LocalDate endDate) {
          this.title = title;
          this.startDate = startDate==null ? LocalDate.now() : startDate;

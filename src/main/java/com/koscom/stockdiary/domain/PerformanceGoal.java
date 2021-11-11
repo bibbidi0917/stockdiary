@@ -1,9 +1,6 @@
 package com.koscom.stockdiary.domain;
 
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Entity;
@@ -30,6 +27,13 @@ public class PerformanceGoal {
     private LocalDate endDate;
 
     private Boolean isDone = false;
+
+    @Builder
+    public PerformanceGoal(String title, LocalDate startDate, LocalDate endDate) {
+        this.title = title;
+        this.startDate = startDate;
+        this.endDate = endDate;
+    }
 
     public void update(String title, LocalDate startDate, LocalDate endDate) {
         this.title = title;
