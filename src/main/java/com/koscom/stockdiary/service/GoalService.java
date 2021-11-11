@@ -57,6 +57,7 @@ public class GoalService {
     @Transactional
     public void createFinalGoal(FinalGoal finalGoal) {
         if(finalGoal.getStartDate() == null) finalGoal.setStartDate(LocalDate.now());
+        if(finalGoal.getEndDate() == null) finalGoal.setEndDate(LocalDate.now().plusMonths(1));
         finalGoalRepository.save(finalGoal);
     }
 
@@ -91,6 +92,23 @@ public class GoalService {
             System.out.println(goal.getPerformances().size());
             int progress = (int) ((double) done / (double) goal.getPerformances().size() * 100);
             if(progress==100) {
+                goalList.remove(goal);
+            }
+        }
+        return goalList;
+    }
+
+    //히스토리 목표 리스트
+    @Transactional(readOnly = true)
+    public List<FinalGoal>  findCompletedGoalList() {
+        List<FinalGoal> goalList = finalGoalRepository.findAll();
+        for(FinalGoal goal : goalList) {
+            int done = (int) goal.getPerformances().stream()
+                    .filter(perfGoal -> perfGoal.getIsDone() == Boolean.TRUE)
+                    .count();
+            System.out.println(goal.getPerformances().size());
+            int progress = (int) ((double) done / (double) goal.getPerformances().size() * 100);
+            if(progress != 100) {
                 goalList.remove(goal);
             }
         }
