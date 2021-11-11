@@ -25,7 +25,7 @@
 <div class="container-scroller">
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-            <a class="navbar-brand brand-logo mr-5" href="/"><img src="/bootstrap/images/logo.svg" class="mr-2" alt="logo"/></a>
+            <a class="navbar-brand brand-logo mr-5" href="/"><img src="/bootstrap/images/logo.PNG" class="mr-2" alt="logo"/></a>
             <a class="navbar-brand brand-logo-mini" href="/"><img src="/bootstrap/images/logo-mini.svg" alt="logo"/></a>
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
@@ -239,12 +239,57 @@
         </nav>
         <div class="main-panel">
             <div class="content-wrapper">
-                <!--여기서부터 시작하면 됨-->
+                <!--검색창-->
+
+                <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" id="searchStockName" class="form-control" placeholder="종목명을 입력하세요" aria-label="Recipient's username">
+                        <div class="input-group-append">
+                            <button class="btn btn-sm btn-primary" id="btn-search-transaction" type="button">Search</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent" id="displayPrice">
+
+                </div>
+
+                <br>
+                <!--목록-->
+                <div class="col-lg-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">거래 내역</h4>
+                            <p class="card-description">
+                            </p>
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <th>거래일자</th>
+                                        <th>내역</th>
+                                        <th>종목명</th>
+                                        <th>금액</th>
+                                        <th>수량</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="displayT">
+                                    </tbody>
+
+                                </table>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
             </div>
         </div>
     </div>
 </div>
-
 <!-- plugins:js -->
 <script src="/bootstrap/vendors/js/vendor.bundle.base.js"></script>
 <!-- endinject -->
@@ -268,6 +313,33 @@
 <!-- End custom js for this page-->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="/js/app/target.js"></script>
+</body>
+
+</html>
+
+<!-- plugins:js -->
+<script src="/bootstrap/vendors/js/vendor.bundle.base.js"></script>
+<!-- endinject -->
+<!-- Plugin js for this page -->
+<script src="/bootstrap/vendors/chart.js/Chart.min.js"></script>
+<script src="/bootstrap/vendors/datatables.net/jquery.dataTables.js"></script>
+<script src="/bootstrap/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+<script src="/bootstrap/js/dataTables.select.min.js"></script>
+
+<!-- End plugin js for this page -->
+<!-- inject:js -->
+<script src="/bootstrap/js/off-canvas.js"></script>
+<script src="/bootstrap/js/hoverable-collapse.js"></script>
+<script src="/bootstrap/js/template.js"></script>
+<script src="/bootstrap/js/settings.js"></script>
+<script src="/bootstrap/js/todolist.js"></script>
+<!-- endinject -->
+<!-- Custom js for this page-->
+<script src="/bootstrap/js/dashboard.js"></script>
+<script src="/bootstrap/js/Chart.roundedBarCharts.js"></script>
+<!-- End custom js for this page-->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="/js/app/transactions.js"></script>
 </body>
 
 </html>

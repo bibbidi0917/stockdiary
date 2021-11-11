@@ -21,8 +21,6 @@ public class Transaction {
     private String date;
     private String sum;
     private int count;
-    private String price;
-    private String curSum;
     private String stockName;
 
 

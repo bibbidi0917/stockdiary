@@ -21,11 +21,4 @@ public class MainController {
         model.addAttribute("perfGoalList", perfGoalList);
         return "index";
     }
-
-
-    @GetMapping("/search/transaction")
-    public String pageSearchTransaction(){
-        return "searchTransaction";
-    }
-
 }

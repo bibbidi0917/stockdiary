@@ -1,11 +1,18 @@
 package com.koscom.stockdiary.domain;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Builder
 @Getter
-@Setter
+@Data
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class Stock {
-    String isuSrtCd;
-    String trdPrc;
+    String stockName;
+    @Id
+    String stockcode;
 }

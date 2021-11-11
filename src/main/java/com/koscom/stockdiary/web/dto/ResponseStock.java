@@ -1,6 +1,5 @@
 package com.koscom.stockdiary.web.dto;
 
-import com.koscom.stockdiary.domain.Stock;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

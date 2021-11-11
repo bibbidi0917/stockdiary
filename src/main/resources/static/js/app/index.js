@@ -7,7 +7,7 @@ var index = {
     },
 
     searchNews: function (){
-        var html = "<table className=\"table table-striped\"> <tbody>"
+        var html = ""
         var data = $('#searchWord').val();
 
         $.ajax({
