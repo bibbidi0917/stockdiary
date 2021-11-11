@@ -270,13 +270,21 @@
                                 <h3 class="card-title" style="text-align: center">오늘의 목표</h3>
                                 <div class="list-wrapper pt-2">
                                     <ul class="d-flex flex-column-reverse todo-list todo-list-custom">
+                                        <script>
+                                            function changeStatus(seq) {
+                                                var xhr = new XMLHttpRequest();
+                                                xhr.onload = function() { }
+                                                xhr.open("post", "http://localhost:8080/api/goal/done/"+seq, true)
+                                                xhr.responseType = "json"
+                                                xhr.send();
+                                            }
+                                        </script>
                                         {{#perfGoalList}}
-                                        <li>
+                                        <li {{#isDone}} class="completed" {{/isDone}}>
                                             <div class="form-check form-check-flat">
                                                 <label class="form-check-label">
-                                                    <input class="checkbox" type="checkbox" id="performanceGoal"
-                                                        {{^isDone}} disabled="disabled" checked="checked"
-                                                        {{/isDone}}>
+                                                    <input id="checkbox-goal" class="checkbox" type="checkbox" onclick="changeStatus({{seq}});"
+                                                            {{#isDone}} checked=true {{/isDone}}>
                                                     {{title}}
                                                 </label>
                                             </div>

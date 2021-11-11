@@ -4,9 +4,6 @@ var index = {
         $('#btn-search-news').on('click', function () {
             _this.searchNews();
         });
-        $('#performanceGoal').on('click', function () {
-            _this.changeStatus();
-        })
     },
 
     searchNews: function (){
@@ -26,18 +23,6 @@ var index = {
             $("#display").empty();
             $("#display").append(html);
         });
-    },
-
-    changeStatus: function() {
-        var perfGoalSeq = 1;
-        $.ajax({
-            type: 'POST',
-            url: '/api/goal/done/'+ perfGoalSeq,
-            dataType:'json',
-            contentType:'application/json; charset=utf-8'
-        }).done(function() {
-
-        })
     }
 };
 index.init();
