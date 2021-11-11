@@ -31,9 +31,10 @@ public class StockService {
     }
 
     @Transactional(readOnly = true)
-    public List<String> findStockAllByUser() {
+    public List<Stock> findStockAllByUser() {
         List<String> nameList = performanceGoalRepository.findAllTag();
-        return nameList;
+        List<Stock> stockList = stockRepository.findAll(nameList);
+        return stockList;
     }
 
     @PostConstruct

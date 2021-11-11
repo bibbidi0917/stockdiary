@@ -21,9 +21,6 @@ public class SearchRestController {
 
     @GetMapping("/api/transactions")
     public List<Transaction> getTransList (@RequestParam(name = "q") String stockName) {
-        System.out.println(stockName);
         return transService.search(stockName);
     }
-
-
 }

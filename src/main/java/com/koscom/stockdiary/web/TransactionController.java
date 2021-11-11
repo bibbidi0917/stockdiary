@@ -1,7 +1,10 @@
 package com.koscom.stockdiary.web;
 
+import com.koscom.stockdiary.domain.Stock;
 import com.koscom.stockdiary.domain.Transaction;
+import com.koscom.stockdiary.service.StockService;
 import com.koscom.stockdiary.service.TransService;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,18 +19,12 @@ import java.util.List;
 @RequestMapping("/search/transaction")
 public class TransactionController {
     private final TransService transService;
+    private final StockService stockService;
 
     @GetMapping("")
-    public String pageSearchTransaction(){
-        return "searchTransaction";
-    }
-
-    @GetMapping("/list")
-    public String getTransList (@RequestParam(name = "q") String stockName, Model model) {
-        List<Transaction> list = transService.search(stockName);
-        model.addAttribute("transactionList", list);
-        model.addAttribute("aaa", "aaa");
-        System.out.println(model.getAttribute("transactionList").toString());
+    public String pageSearchTransaction(Model model){
+        List<Stock> list = stockService.findStockAllByUser();
+        model.addAttribute("tagList", list);
         return "searchTransaction";
     }
 }

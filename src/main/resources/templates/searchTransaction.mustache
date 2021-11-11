@@ -240,7 +240,6 @@
         <div class="main-panel">
             <div class="content-wrapper">
                 <!--검색창-->
-
                 <div class="form-group">
                     <div class="input-group">
                         <input type="text" id="searchStockName" class="form-control" placeholder="종목명을 입력하세요" aria-label="Recipient's username">
@@ -250,6 +249,31 @@
                     </div>
                 </div>
 
+                <!--태그 리스트-->
+                <div class="row">
+                    <div class="col-6 col-xl-12 mb-4 mb-xl-0">
+                        <script>
+                            function changeStatus(stockName) {
+                                var xhr = new XMLHttpRequest();
+                                xhr.onload = function() { }
+                                xhr.open("post", '/api/transactions?q='+stockName, true)
+                                xhr.responseType = "json"
+                                xhr.send();
+                            }
+                        </script>
+
+                        <script>
+                            function somefunction(value){
+                                alert(value);
+                            }
+                        </script>
+                        {{#tagList}}
+                            <label class="badge badge-success" type="button" id="{{stockName}}" onclick="transactions.searchByTag(id)">{{stockName}}</label>&nbsp;&nbsp;
+                        {{/tagList}}
+                    </div>
+                </div>
+
+                <!--주가-->
                 <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent" id="displayPrice">
 
                 </div>

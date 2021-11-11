@@ -2,18 +2,19 @@ var transactions = {
     init: function(){
         var _this = this;
         $('#btn-search-transaction').on('click', function () {
-            _this.searchTransaction();
-            _this.searchPrice();
+            var stockName = $('#searchStockName').val();
+            _this.searchTransaction(stockName);
+            _this.searchPrice(stockName);
         });
     },
 
-    searchTransaction : function () {
+    searchTransaction : function (stockName) {
         var html = "";
-        var data = $('#searchStockName').val();
+        //var stockName = $('#searchStockName').val();
 
         $.ajax({
             type: 'GET',
-            url: '/api/transactions?q='+data,
+            url: '/api/transactions?q='+stockName,
             dataType:'json',
             contentType:'application/json; charset=utf-8'
         }).done(function(data){
@@ -36,18 +37,18 @@ var transactions = {
         });
     },
 
-    searchPrice : function () {
+    searchPrice : function (stockName) {
         var html = "<div class=\"card card-light-blue\">\n" +
             "                                    <div class=\"card-body\">";
-        var data = $('#searchStockName').val();
-        var name = data;
+        //var data = $('#searchStockName').val();
+        var name = stockName;
         $.ajax({
             type: 'GET',
-            url: '/koscom/price?mc=kospi&ic='+data,
+            url: '/koscom/price?mc=kospi&ic='+stockName,
             dataType:'text',
             contentType:'application/json; charset=utf-8'
         }).done(function(data){
-            html += "<p class=\"mb-4\">현재 주가는</p>" +
+            html += "<h3>" + name + "</h3>" + "<p class=\"mb-4\">현재 주가는</p>" +
                 "<p class=\"fs-30 mb-2\">" + data + "원</p>";
             html += "</div></div>";
             $("#displayPrice").empty();
@@ -55,8 +56,13 @@ var transactions = {
             //alert(data);
             //location.reload();
         }).fail(function (request, status, error) {
-            alert("request: "+request+" status: "+status +" error: "+error);
+            //alert("request: "+request+" status: "+status +" error: "+error);
         });
+    },
+
+    searchByTag : function (stockName) {
+        this.searchTransaction(stockName);
+        this.searchPrice(stockName);
     }
 
 };
