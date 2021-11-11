@@ -21,4 +21,14 @@ public class TargetController {
     public String pageHistoryTarget(){
         return "historyTarget";
     }
+
+    @GetMapping("/target/finalTargetDetail")
+    public String pageFinalTargetDetail(){
+        return "finalTargetDetail";
+    }
+
+    @GetMapping("/target/performanceTargetcreate")
+    public String pageperformanceTargetCreate(){
+        return "performanceTargetPopup";
+    }
 }
