@@ -21,29 +21,29 @@ public class GoalService {
     @PostConstruct
     @Transactional
     public void init() {
-        FinalGoal finalGoal1 = FinalGoal.builder().title("최종목표1").startDate(LocalDate.now()).endDate(LocalDate.now().plusMonths(1)).build();
+        FinalGoal finalGoal1 = FinalGoal.builder().title("수익률 10% 달성하기").startDate(LocalDate.now()).endDate(LocalDate.now().plusMonths(1)).build();
         finalGoalRepository.save(finalGoal1);
 
-        PerformanceGoal goal1 = PerformanceGoal.builder().title("수행목표1").startDate(LocalDate.now()).endDate(LocalDate.now().plusMonths(1)).build();
+        PerformanceGoal goal1 = PerformanceGoal.builder().title("현대차 주가 흐름 확인하기").startDate(LocalDate.now()).endDate(LocalDate.now().plusMonths(1)).tag1("현대차").build();
         performanceGoalRepository.save(goal1);
         finalGoal1.add(goal1);
         finalGoalRepository.save(finalGoal1);
 
-        FinalGoal finalGoal2 = FinalGoal.builder().title("최종목표2").startDate(LocalDate.now()).endDate(LocalDate.now().plusMonths(1)).build();
+        FinalGoal finalGoal2 = FinalGoal.builder().title("산업별 회사 분석").startDate(LocalDate.now()).endDate(LocalDate.now().plusMonths(1)).build();
         finalGoalRepository.save(finalGoal2);
 
-        PerformanceGoal goal2 = PerformanceGoal.builder().title("수행목표2").startDate(LocalDate.now().minusDays(3)).endDate(LocalDate.now().plusMonths(1)).build();
+        PerformanceGoal goal2 = PerformanceGoal.builder().title("제약 관련 회사 분석하기").startDate(LocalDate.now().minusDays(3)).endDate(LocalDate.now().plusMonths(1)).tag1("셀트리온").build();
         performanceGoalRepository.save(goal2);
         goal2.setIsDone(true);
         finalGoal2.add(goal2);
         finalGoalRepository.save(finalGoal2);
 
-        PerformanceGoal goal3 = PerformanceGoal.builder().title("수행목표3").startDate(LocalDate.now().minusDays(3)).endDate(LocalDate.now().minusDays(1)).build();
+        PerformanceGoal goal3 = PerformanceGoal.builder().title("반도체 제조 업체 최신 뉴스 읽기").startDate(LocalDate.now().minusDays(3)).endDate(LocalDate.now().minusDays(1)).tag1("삼성전자").tag2("SK하이닉스").build();
         performanceGoalRepository.save(goal3);
         finalGoal2.add(goal3);
         finalGoalRepository.save(finalGoal2);
 
-        PerformanceGoal goal4 = PerformanceGoal.builder().title("수행목표4").startDate(LocalDate.now()).endDate(LocalDate.now()).build();
+        PerformanceGoal goal4 = PerformanceGoal.builder().title("IT 회사 재무제표 분석하기").startDate(LocalDate.now()).endDate(LocalDate.now()).tag1("네이버").tag2("카카오").build();
         goal4.setIsDone(true);
         performanceGoalRepository.save(goal4);
         finalGoal2.add(goal4);

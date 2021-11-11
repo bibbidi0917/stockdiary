@@ -279,9 +279,16 @@
                                         {{#goal.object.performances}}
                                             <tr>
                                                 <td>{{title}}</td>
-                                                <td> <!--태그 수만큼 for each문 돌리기-->
-                                                    <label class="badge badge-success">삼성전자</label>
-                                                    <label class="badge badge-success">LG전자</label>
+                                                <td>
+                                                    {{#tag1}}
+                                                        <label class="badge badge-success">{{tag1}}</label>
+                                                    {{/tag1}}
+                                                    {{#tag2}}
+                                                        <label class="badge badge-success">{{tag2}}</label>
+                                                    {{/tag2}}
+                                                    {{#tag3}}
+                                                        <label class="badge badge-success">{{tag3}}</label>
+                                                    {{/tag3}}
                                                 </td>
                                                 <td>{{startDate}}</td>
                                                 <td>{{endDate}}</td>

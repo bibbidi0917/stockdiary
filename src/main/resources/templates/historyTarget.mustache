@@ -253,7 +253,7 @@
                                                     <div class="ml-xl-4 mt-3">
                                                         <p class="card-title"></p>
                                                         <!--목표 id 값을 같이 넘겨줘야 함-->
-                                                        <h1 class="text-primary" style="text-align:center" ><a href="/target/completedFinalTargetDetail/{{object.seq}}">{{object.title}}</a></h1>
+                                                        <h2 class="text-primary" style="text-align:center" ><a href="/target/completedFinalTargetDetail/{{object.seq}}">{{object.title}}</a></h2>
                                                         <h3 class="font-weight-500 mb-xl-4 text-info">{{object.startDate}}~{{object.endDate}}</h3>
                                                         <h3 class="font-weight-500 mb-xl-4 text-info" style="text-align: right">{{progress}}%</h3>
                                                         <div class="progress">
@@ -288,9 +288,16 @@
                                                                             {{#performances}}
                                                                                 <tr>
                                                                                     <td>{{title}}</td>
-                                                                                    <td> <!--태그 수만큼 for each문 돌리기-->
-                                                                                        <label class="badge badge-success">삼성전자</label>
-                                                                                        <label class="badge badge-success">LG전자</label>
+                                                                                    <td>
+                                                                                        {{#tag1}}
+                                                                                            <label class="badge badge-success">{{tag1}}</label>
+                                                                                        {{/tag1}}
+                                                                                        {{#tag2}}
+                                                                                            <label class="badge badge-success">{{tag2}}</label>
+                                                                                        {{/tag2}}
+                                                                                        {{#tag3}}
+                                                                                            <label class="badge badge-success">{{tag3}}</label>
+                                                                                        {{/tag3}}
                                                                                     </td>
                                                                                     <td>{{startDate}}</td>
                                                                                     <td>{{endDate}}</td>
