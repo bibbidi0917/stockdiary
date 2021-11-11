@@ -49,5 +49,6 @@ public class StockService {
         stockRepository.save(Stock.builder().stockName("카카오").stockcode("035720").build());
         stockRepository.save(Stock.builder().stockName("현대차").stockcode("005380").build());
         stockRepository.save(Stock.builder().stockName("SK하이닉스").stockcode("000660").build());
+        stockRepository.save(Stock.builder().stockName("엔씨소프트").stockcode("036570").build());
     }
 }
