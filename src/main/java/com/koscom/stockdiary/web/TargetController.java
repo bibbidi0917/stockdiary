@@ -36,7 +36,15 @@ public class TargetController {
     }
 
     @GetMapping("/target/historyTarget")
-    public String pageHistoryTarget(){
+    public String pageHistoryTarget(Model model){
+        List<FinalGoal> finalGoals = goalService.findCompletedGoalList();
+        List<GoalDTO> finalGoalList = new ArrayList<>();
+
+        for(int i=0; i<finalGoals.size(); i++){
+            GoalDTO goal = goalService.findGoalDetail(finalGoals.get(i).getSeq());
+            finalGoalList.add(goal);
+        }
+        model.addAttribute("finalGoalList",finalGoalList);
         return "historyTarget";
     }
 
@@ -45,6 +53,13 @@ public class TargetController {
         GoalDTO goal = goalService.findGoalDetail(seq);
         model.addAttribute("goal",goal);
         return "finalTargetDetail";
+    }
+
+    @GetMapping("/target/completedFinalTargetDetail/{seq}")
+    public String pageCompletedFinalTargetDetail(@PathVariable Long seq, Model model){
+        GoalDTO goal = goalService.findGoalDetail(seq);
+        model.addAttribute("goal",goal);
+        return "completedFinalTargetDetail";
     }
 
     @GetMapping("/target/performanceTargetcreate")
