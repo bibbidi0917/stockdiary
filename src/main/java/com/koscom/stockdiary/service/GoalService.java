@@ -17,7 +17,6 @@ public class GoalService {
 
     private final FinalGoalRepository finalGoalRepository;
     private final PerformanceGoalRepository performanceGoalRepository;
-    private final StockTagRepository stockTagRepository;
 
     @PostConstruct
     @Transactional

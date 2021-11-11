@@ -1,18 +1,24 @@
 package com.koscom.stockdiary.service;
 
 import com.koscom.stockdiary.domain.ApiRepository;
+import com.koscom.stockdiary.domain.PerformanceGoalRepository;
 import com.koscom.stockdiary.domain.Stock;
 import com.koscom.stockdiary.domain.StockRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
 public class StockService {
     private final ApiRepository apiRepository;
     private final StockRepository stockRepository;
+    private final PerformanceGoalRepository performanceGoalRepository;
 
     public String getPrice(final String marketcode, final String stockName) {
         String issuecode = findIssueCode(stockName);
@@ -22,6 +28,12 @@ public class StockService {
     public String findIssueCode(String stockName) {
         Stock stock = stockRepository.findByStockName(stockName);
         return stock.getStockcode();
+    }
+
+    @Transactional(readOnly = true)
+    public List<String> findStockAllByUser() {
+        List<String> nameList = performanceGoalRepository.findAllTag();
+        return nameList;
     }
 
     @PostConstruct
