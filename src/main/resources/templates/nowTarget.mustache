@@ -244,6 +244,7 @@
                 <div class="row">
                     <div class="col-md-12 grid-margin stretch-card">
                         <div class="card position-relative">
+                            {{#finalGoalList}}
                             <div class="card-body">
                                 <div id="detailedReports" class="position-static">
                                     <div class="carousel-inner">
@@ -253,105 +254,62 @@
                                                     <div class="ml-xl-4 mt-3">
                                                         <p class="card-title"></p>
                                                         <!--목표 id 값을 같이 넘겨줘야 함-->
-                                                        <h1 class="text-primary"><a href="/target/finalTargetDetail">최종 목표명</a></h1>
-                                                        <h3 class="font-weight-500 mb-xl-4 text-info">2021.11.03~2021.12.04</h3>
-                                                        <h3 class="font-weight-500 mb-xl-4 text-info" style="text-align: right">28%</h3>
+                                                        <h1 class="text-primary" style="text-align:center" ><a href="/target/finalTargetDetail">{{object.title}}</a></h1>
+                                                        <h3 class="font-weight-500 mb-xl-4 text-info">{{object.startDate}}~{{object.endDate}}</h3>
+                                                        <h3 class="font-weight-500 mb-xl-4 text-info" style="text-align: right">{{progress}}%</h3>
                                                             <div class="progress">
-                                                                <div class="progress-bar bg-warning" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                                                <div class="progress-bar bg-warning" role="progressbar" style="width: {{progress}}%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                                                             </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-9 col-xl-9">
                                                     <div class="row">
-                                                        <div class="col-md-9">
+                                                        <div class="col-md-10">
                                                             <div class="card-body">
                                                                 <div class="table-responsive">
                                                                     <table class="table table-hover">
                                                                         <colgroup>
                                                                             <col width="50%">
                                                                             <col width="30%">
-                                                                            <col width="10%">
-                                                                            <col width="10%">
+                                                                            <col width="8%">
+                                                                            <col width="8%">
+                                                                            <col width="4%">
                                                                         </colgroup>
                                                                         <thead>
                                                                         <tr>
-                                                                            <th>수행목표</th>
-                                                                            <th>#태그</th>
-                                                                            <th>시작날짜</th>
-                                                                            <th>종료날짜</th>
+                                                                            <th style="text-align: center">수행목표</th>
+                                                                            <th style="text-align: center">#태그</th>
+                                                                            <th style="text-align: center">시작</th>
+                                                                            <th style="text-align: center">종료</th>
+                                                                            <th style="text-align: center">완료여부</th>
                                                                         </tr>
                                                                         </thead>
                                                                         <tbody>
-                                                                        <tr>
-                                                                            <td>수행목표명</td>
-                                                                            <td> <!--태그 수만큼 for each문 돌리기-->
-                                                                                <label class="badge badge-success">삼성전자</label>
-                                                                                <label class="badge badge-success">LG전자</label>
-                                                                            </td>
-                                                                            <td>시작날짜</td>
-                                                                            <td>종료날짜</td>
-                                                                        </tr>
+                                                                        {{#object}}
+                                                                            {{#performances}}
+                                                                                <tr>
+                                                                                    <td>{{title}}</td>
+                                                                                    <td> <!--태그 수만큼 for each문 돌리기-->
+                                                                                        <label class="badge badge-success">삼성전자</label>
+                                                                                        <label class="badge badge-success">LG전자</label>
+                                                                                    </td>
+                                                                                    <td>{{startDate}}</td>
+                                                                                    <td>{{endDate}}</td>
+                                                                                    <td> <!--완료여부-->
+                                                                                        {{#isDone}}
+                                                                                            <label class="badge badge-info">Completed</label>
+                                                                                        {{/isDone}}
+                                                                                        {{^isDone}}
+                                                                                            <label class="badge badge-warning">In Progress</label>
+                                                                                        {{/isDone}}
+                                                                                    </td>
+                                                                                </tr>
+                                                                            {{/performances}}
+                                                                        {{/object}}
                                                                         </tbody>
                                                                     </table>
                                                                 </div>
                                                             </div>
-                                                            <!--<div class="table-responsive mb-9 mb-md-0 mt-9">
-                                                                <table class="table table-borderless report-table">
-                                                                    <tr>
-                                                                        <td class="text-muted">Illinois</td>
-                                                                        <td class="w-100 px-0">
-                                                                            <div class="progress progress-md mx-4">
-                                                                                <div class="progress-bar bg-primary" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                                                            </div>
-                                                                        </td>
-                                                                        <td><h5 class="font-weight-bold mb-0">713</h5></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="text-muted">Washington</td>
-                                                                        <td class="w-100 px-0">
-                                                                            <div class="progress progress-md mx-4">
-                                                                                <div class="progress-bar bg-warning" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                                                                            </div>
-                                                                        </td>
-                                                                        <td><h5 class="font-weight-bold mb-0">583</h5></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="text-muted">Mississippi</td>
-                                                                        <td class="w-100 px-0">
-                                                                            <div class="progress progress-md mx-4">
-                                                                                <div class="progress-bar bg-danger" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                                                                            </div>
-                                                                        </td>
-                                                                        <td><h5 class="font-weight-bold mb-0">924</h5></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="text-muted">California</td>
-                                                                        <td class="w-100 px-0">
-                                                                            <div class="progress progress-md mx-4">
-                                                                                <div class="progress-bar bg-info" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                                                            </div>
-                                                                        </td>
-                                                                        <td><h5 class="font-weight-bold mb-0">664</h5></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="text-muted">Maryland</td>
-                                                                        <td class="w-100 px-0">
-                                                                            <div class="progress progress-md mx-4">
-                                                                                <div class="progress-bar bg-primary" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                                                            </div>
-                                                                        </td>
-                                                                        <td><h5 class="font-weight-bold mb-0">560</h5></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="text-muted">Alaska</td>
-                                                                        <td class="w-100 px-0">
-                                                                            <div class="progress progress-md mx-4">
-                                                                                <div class="progress-bar bg-danger" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                                                            </div>
-                                                                        </td>
-                                                                    </tr>
-                                                                </table>
-                                                            </div>-->
                                                         </div>
                                                     </div>
                                                 </div>
@@ -360,12 +318,13 @@
                                     </div>
                                 </div>
                             </div>
+                            {{/finalGoalList}}
                         </div>
                     </div>
                 </div>
             </div>
             <div class="template-demo mt-4">
-                <button type="button" id="btn-finalTarget-create" class="btn btn-success btn-md" style="position: absolute; right: 10%; bottom: 15%">최종목표 추가</button>
+                <button type="button" id="btn-finalTarget-create" class="btn btn-success btn-md" style="position: absolute; right: 6%; bottom: 15%">최종목표 추가</button>
             </div>
             <!-- content-wrapper ends -->
             <!-- partial:partials/_footer.html -->

@@ -26,8 +26,25 @@ var target = {
         window.open('/target/finalTargetCreate', '', 'status=no, height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY);
     },
     saveFinalTarget: function (){
-        //form 데이터 말아서 최종 목표 저장하는 url로 ajax 보내기
-        alert("target.js 의 saveFinalTarget 들어옴!");
+        //alert($('#finalTargetName').val());
+        var data ={
+            title:$('#finalTargetName').val(),
+            startDate : $('#finalTargetStartDate').val(),
+            endDate : $('#finalTargetEndDate').val()
+        };
+
+        $.ajax({
+            type: 'POST',
+            url:'/api/goal/final',
+            dataType: 'json',
+            contentType:'application/json; charset=utf-8',
+            data: JSON.stringify(data)
+        })
+
+        alert('최종 목표가 저장되었습니다.');
+
+        opener.document.location.reload();
+        self.close();
     },
     loadPerformanceTargetPopup: function (){
         var popupWidth = 600;

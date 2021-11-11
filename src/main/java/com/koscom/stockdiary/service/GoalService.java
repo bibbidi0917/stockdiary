@@ -23,7 +23,7 @@ public class GoalService {
     @PostConstruct
     @Transactional
     public void init() {
-        FinalGoal finalGoal1 = FinalGoal.builder().title("최종목표1").build();
+        FinalGoal finalGoal1 = FinalGoal.builder().title("최종목표1").startDate(LocalDate.now()).endDate(LocalDate.now().plusMonths(1)).build();
         finalGoalRepository.save(finalGoal1);
 
         PerformanceGoal goal1 = PerformanceGoal.builder().title("수행목표1").startDate(LocalDate.now()).endDate(LocalDate.now().plusMonths(1)).build();
@@ -31,7 +31,7 @@ public class GoalService {
         finalGoal1.add(goal1);
         finalGoalRepository.save(finalGoal1);
 
-        FinalGoal finalGoal2 = FinalGoal.builder().title("최종목표2").build();
+        FinalGoal finalGoal2 = FinalGoal.builder().title("최종목표2").startDate(LocalDate.now()).endDate(LocalDate.now().plusMonths(1)).build();
         finalGoalRepository.save(finalGoal2);
 
         PerformanceGoal goal2 = PerformanceGoal.builder().title("수행목표2").startDate(LocalDate.now().minusDays(3)).endDate(LocalDate.now().plusMonths(1)).build();
@@ -45,7 +45,7 @@ public class GoalService {
         finalGoal2.add(goal3);
         finalGoalRepository.save(finalGoal2);
 
-        PerformanceGoal goal4 = PerformanceGoal.builder().title("수행목표4").startDate(LocalDate.now()).endDate(LocalDate.now().minusDays(1)).build();
+        PerformanceGoal goal4 = PerformanceGoal.builder().title("수행목표4").startDate(LocalDate.now()).endDate(LocalDate.now()).build();
         goal4.setIsDone(true);
         performanceGoalRepository.save(goal4);
         finalGoal2.add(goal4);
