@@ -23,8 +23,8 @@ public class TransactionController {
 
     @GetMapping("")
     public String pageSearchTransaction(Model model){
-        List<Stock> list = stockService.findStockAllByUser();
-        model.addAttribute("tagList", list);
+        List<String> tagList = stockService.findStockAllByUser();
+        model.addAttribute("tagList", tagList);
         return "searchTransaction";
     }
 }

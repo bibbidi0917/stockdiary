@@ -29,10 +29,10 @@ public class StockService {
     }
 
     @Transactional(readOnly = true)
-    public List<Stock> findStockAllByUser() {
+    public List<String> findStockAllByUser() {
         List<String> nameList = performanceGoalRepository.findAllTag();
-        List<Stock> stockList = stockRepository.findAll(nameList);
-        return stockList;
+        //List<Stock> stockList = stockRepository.findAll(nameList);
+        return nameList;
     }
 
     @Transactional(readOnly = true)
