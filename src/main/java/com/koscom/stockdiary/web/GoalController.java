@@ -32,7 +32,7 @@ public class GoalController {
     }
 
     @PostMapping("/final")
-    public void createFinalGoal(@ModelAttribute FinalGoal finalGoal) {
+    public void createFinalGoal(@RequestBody FinalGoal finalGoal) {
         goalService.createFinalGoal(finalGoal);
     }
 
