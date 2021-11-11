@@ -9,9 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.PostConstruct;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
@@ -35,6 +33,12 @@ public class StockService {
         List<String> nameList = performanceGoalRepository.findAllTag();
         List<Stock> stockList = stockRepository.findAll(nameList);
         return stockList;
+    }
+
+    @Transactional(readOnly = true)
+    public List<String> findStockAllByUserString() {
+        List<String> nameList = performanceGoalRepository.findAllTag();
+        return nameList;
     }
 
     @PostConstruct
