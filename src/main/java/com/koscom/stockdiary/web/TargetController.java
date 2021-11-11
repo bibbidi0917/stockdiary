@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,8 +40,10 @@ public class TargetController {
         return "historyTarget";
     }
 
-    @GetMapping("/target/finalTargetDetail")
-    public String pageFinalTargetDetail(){
+    @GetMapping("/target/finalTargetDetail/{seq}")
+    public String pageFinalTargetDetail(@PathVariable Long seq, Model model){
+        GoalDTO goal = goalService.findGoalDetail(seq);
+        model.addAttribute("goal",goal);
         return "finalTargetDetail";
     }
 
