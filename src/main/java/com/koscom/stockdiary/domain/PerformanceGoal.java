@@ -3,11 +3,10 @@ package com.koscom.stockdiary.domain;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Setter
 @Getter
@@ -28,11 +27,18 @@ public class PerformanceGoal {
 
     private Boolean isDone = false;
 
+    private String tag1;
+    private String tag2;
+    private String tag3;
+
     @Builder
-    public PerformanceGoal(String title, LocalDate startDate, LocalDate endDate) {
+    public PerformanceGoal(String title, LocalDate startDate, LocalDate endDate, String tag1, String tag2, String tag3) {
         this.title = title;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.tag1 = tag1;
+        this.tag2 = tag2;
+        this.tag3 = tag3;
     }
 
     public void update(String title, LocalDate startDate, LocalDate endDate) {

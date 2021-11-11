@@ -1,9 +1,6 @@
 package com.koscom.stockdiary.service;
 
-import com.koscom.stockdiary.domain.FinalGoal;
-import com.koscom.stockdiary.domain.FinalGoalRepository;
-import com.koscom.stockdiary.domain.PerformanceGoal;
-import com.koscom.stockdiary.domain.PerformanceGoalRepository;
+import com.koscom.stockdiary.domain.*;
 import com.koscom.stockdiary.web.dto.GoalDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,6 +17,7 @@ public class GoalService {
 
     private final FinalGoalRepository finalGoalRepository;
     private final PerformanceGoalRepository performanceGoalRepository;
+    private final StockTagRepository stockTagRepository;
 
     @PostConstruct
     @Transactional

@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,17 +18,6 @@ import java.util.List;
 public class GoalController {
 
     private final GoalService goalService;
-
-    @GetMapping("/form")
-    public String getForm() {
-        return "form";
-    }
-
-    @GetMapping("/{seq}/perf")
-    public String getPerf(@PathVariable("seq") Long finalSeq, Model model) {
-        model.addAttribute("finalSeq", finalSeq);
-        return "perf";
-    }
 
     @PostMapping("/final")
     public void createFinalGoal(@RequestBody FinalGoal finalGoal) {
