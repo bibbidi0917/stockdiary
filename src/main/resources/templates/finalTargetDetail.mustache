@@ -285,7 +285,9 @@
                                                 xhr.responseType = "json"
                                                 xhr.send();
 
-                                                location.reload();
+                                                setTimeout(function() {
+                                                    location.reload();
+                                                }, 200);
                                             }
                                         </script>
                                         {{#goal.object.performances}}
