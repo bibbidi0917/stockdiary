@@ -62,8 +62,9 @@ public class TargetController {
         return "completedFinalTargetDetail";
     }
 
-    @GetMapping("/target/performanceTargetcreate")
-    public String pageperformanceTargetCreate(){
+    @GetMapping("/target/performanceTargetcreate/{finalSeq}")
+    public String pageperformanceTargetCreate(@PathVariable Long finalSeq, Model model){
+        model.addAttribute("finalSeq",finalSeq);
         return "performanceTargetPopup";
     }
 }
