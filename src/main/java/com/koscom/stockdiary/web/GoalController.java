@@ -30,7 +30,7 @@ public class GoalController {
     }
 
     @PostMapping("/{finalSeq}/perf")
-    public void createPerfGoal(@ModelAttribute PerformanceGoal performanceGoal, @PathVariable("finalSeq") Long finalSeq) {
+    public void createPerfGoal(@RequestBody PerformanceGoal performanceGoal, @PathVariable("finalSeq") Long finalSeq) {
         goalService.createPerfGoal(performanceGoal, finalSeq);
     }
 

@@ -68,6 +68,7 @@ public class GoalService {
     @Transactional
     public void createPerfGoal(PerformanceGoal performanceGoal, Long finalSeq) {
         if(performanceGoal.getStartDate() == null) performanceGoal.setStartDate(LocalDate.now());
+
         performanceGoalRepository.save(performanceGoal);
         FinalGoal finalGoal = finalGoalRepository.findById(finalSeq).orElse(null);
         finalGoal.add(performanceGoal);
