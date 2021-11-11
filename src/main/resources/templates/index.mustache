@@ -307,9 +307,18 @@
                         </div>
                         <!--태그 리스트-->
                         <div class="row">
+                            <script>
+                                function searchNews(query) {
+                                    var xhr = new XMLHttpRequest();
+                                    xhr.onload = function() { }
+                                    xhr.open("post", "/api/search/news?q="+query, true)
+                                    xhr.responseType = "json"
+                                    xhr.send();
+                                }
+                            </script>
                             <div class="col-6 col-xl-12 mb-4 mb-xl-0">
                                 {{#tagList}}
-                                    <label class="badge badge-success" >{{.}}</label>&nbsp;&nbsp;
+                                    <label class="badge badge-success" type="button" id={{.}} onclick="news.searchByTag(id)">{{.}}</label>&nbsp;&nbsp;
                                 {{/tagList}}
                             </div>
                         </div>
@@ -984,6 +993,7 @@
 
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="/js/app/index.js"></script>
+<script src="/js/app/news.js"></script>
 </body>
 
 </html>

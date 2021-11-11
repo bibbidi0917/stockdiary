@@ -252,21 +252,6 @@
                 <!--태그 리스트-->
                 <div class="row">
                     <div class="col-6 col-xl-12 mb-4 mb-xl-0">
-                        <script>
-                            function changeStatus(stockName) {
-                                var xhr = new XMLHttpRequest();
-                                xhr.onload = function() { }
-                                xhr.open("post", '/api/transactions?q='+stockName, true)
-                                xhr.responseType = "json"
-                                xhr.send();
-                            }
-                        </script>
-
-                        <script>
-                            function somefunction(value){
-                                alert(value);
-                            }
-                        </script>
                         {{#tagList}}
                             <label class="badge badge-success" type="button" id="{{.}}" onclick="transactions.searchByTag(id)">{{.}}</label>&nbsp;&nbsp;
                         {{/tagList}}
