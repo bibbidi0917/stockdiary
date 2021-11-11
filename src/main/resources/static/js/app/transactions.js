@@ -21,6 +21,7 @@ var transactions = {
             $.each(data, function(key,value){
                 html += "<tr>" +
                     "<td>"+ value.date + "</td>" +
+                    "<td>"+ value.brokerage + "</td>" +
                     "<td>"+ value.type+"</td>" +
                     "<td>"+ value.stockName+"</td>" +
                     "<td>"+ value.sum+"</td>" +

@@ -16,7 +16,7 @@ public class Transaction {
     @Id
     @GeneratedValue
     private Long id;
-
+    private String brokerage;
     private String type;
     private String date;
     private String sum;
